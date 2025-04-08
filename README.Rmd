@@ -56,7 +56,7 @@ category_features <- c("buying", "maint", "doors", "persons", "lug_boot", "safet
 plot_list <- generate_feature_barplots(data = df, features = category_features)
 # Display the first and second plot as an example
 plot_list[[1]]
-plot_list[[2]]
+plot_list[[5]]
 ```
 generate_feature_barplots() creates a list of bar plots to visualize the relationship between the categorical variables and the target variable. It makes it easier to identify the trends and patterns.
 

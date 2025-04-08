@@ -64,7 +64,7 @@ plot_list[[1]]
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ``` r
-plot_list[[2]]
+plot_list[[5]]
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
