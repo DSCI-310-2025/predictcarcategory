@@ -13,10 +13,21 @@
 #'
 #' @examples
 #' # example code
-#' barplot <- generate_barplot(dataset = mtcars, x = "gear", x_name = "Gear")
+#' # example code
+#' df <- data.frame(
+#'     buying = c("vhigh", "vhigh", "vhigh", "vhigh", "vhigh", "low", "med", "low", "med"),
+#'     maint = c("vhigh", "vhigh", "vhigh", "vhigh", "vhigh", "low", "low", "med", "med"),
+#'     doors = c("2", "2", "2", "2", "2", "3", "3", "4", "5more"),
+#'     persons = c("2", "2", "2", "2", "2", "4", "4", "more", "more"),
+#'     lug_boot = c("small", "small", "small", "med", "med", "big", "big", "med", "small"),
+#'     safety = c("low", "med", "high", "low", "med", "high", "low", "med", "high"),
+#'     class = c("unacc", "unacc", "acc", "good", "vgood", "acc", "good", "vgood", "unacc")
+#' )
+#'
+#' plot <- generate_barplot(dataset = df, x = "class", x_name = "Class")
 #'
 #' \dontrun{
-#' barplot <- generate_barplot(dataset = mtcars, x = "gear", x_name = gear)
+#' barplot <- generate_barplot(dataset = df, x = "class", x_name = class)
 #'
 # Function to create a bar plot for the class distribution
 #' }

@@ -4,8 +4,8 @@ library(readr)
 library(tibble)
 library(caret)
 
-#' Function that applies RandomForest algorithm to the dataset, returns the confusion matrix
-#'
+# #' Function that applies RandomForest algorithm to the dataset, returns the confusion matrix
+# #'
 
 # Define the function
 apply_random_forest <- function(df) {

@@ -1,6 +1,31 @@
-library(ggplot2)
-
-# Function to create bar plots for categorical features against class
+#' Generate a list of barplots for cateforical features against class
+#'
+#' This function  creates a eries of bar plots to visualize the relationship
+#' between specified cateforical features and a target class variable in a given dataset.
+#' Each plot displays the count of observations per feature category, grouped by the class.
+#'
+#' @param data A data frame containing the target class variable
+#' @param features A list of categorical features
+#'
+#' @return A list of `ggplot` objects, each corresponding to one of the specified features.
+#'
+#' @export
+#'
+#' @examples
+#' # example code
+#' df <- data.frame(
+#'     buying = c("vhigh", "vhigh", "vhigh", "vhigh", "vhigh", "low", "med", "low", "med"),
+#'     maint = c("vhigh", "vhigh", "vhigh", "vhigh", "vhigh", "low", "low", "med", "med"),
+#'     doors = c("2", "2", "2", "2", "2", "3", "3", "4", "5more"),
+#'     persons = c("2", "2", "2", "2", "2", "4", "4", "more", "more"),
+#'     lug_boot = c("small", "small", "small", "med", "med", "big", "big", "med", "small"),
+#'     safety = c("low", "med", "high", "low", "med", "high", "low", "med", "high"),
+#'     class = c("unacc", "unacc", "acc", "good", "vgood", "acc", "good", "vgood", "unacc")
+#' )
+#'
+#' category_features <- c("buying", "maint", "doors", "persons", "lug_boot", "safety")
+#' plots <- generate_feature_barplots(data = df, features = category_features)
+#'
 generate_feature_barplots <- function(data, features) {
     # Check if data is a data frame
     if (!is.data.frame(data)) {
@@ -30,10 +55,10 @@ generate_feature_barplots <- function(data, features) {
 
     # Generate bar plots for each feature
     plot_list <- lapply(features, function(feature) {
-        ggplot(data, aes(x = .data[[feature]], fill = class)) +
-            geom_bar(position = "dodge") +
-            theme_minimal() +
-            labs(
+        ggplot2::ggplot(data, ggplot2::aes(x = .data[[feature]], fill = .data[["class"]])) +
+            ggplot2::geom_bar(position = "dodge") +
+            ggplot2::theme_minimal() +
+            ggplot2::labs(
                 title = paste("Feature Analysis:", feature, "vs. Evaluation Class"),
                 x = feature, y = "Count"
             )
