@@ -27,5 +27,6 @@ Imports:
     randomForest,
     readr,
     rlang,
+    stats,
     tibble
 URL: https://dsci-310-2025.github.io/predictcarcategory/
