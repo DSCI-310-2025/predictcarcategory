@@ -4,9 +4,8 @@ We welcome all contributions to this project!
 ## Reporting Issues
 
 If you notice a bug, or have a feature request,
-please open up an issue [here](https://github.com/UBC-DSCI/predictcarcategory/issues). 
+please open up an issue [here](https://github.com/DSCI-310-2025/predictcarcategory/issues). 
 When submitting an issue, include as much relevant information as possible, such as:
-
 - A clear description of the problem or request
 - Steps to reproduce the issue (if applicable)
 
