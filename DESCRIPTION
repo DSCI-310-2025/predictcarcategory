@@ -1,9 +1,18 @@
 Package: predictcarcategory
-Title: What the Package Does (One Line, Title Case)
+Title: Predict Car Categories Using Machine Learning Models
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    c(
+    person("Brianna", "Zhou", , "brianna.zhou@example.com", role = c("aut", "cre")),
+    person("Jiaming", "Chang", , "jiaming.chang@example.com", role = "aut"),
+    person("Yicheng", "Huang", , "yicheng.huang@example.com", role = "aut"),
+    person("Effie", "Wang", , "effie.wang@example.com", role = "aut")
+    )
+Description: Provides functions to generate bar plots of individual variables, create 
+    lists of bar plots for categorical features against a target variable, 
+    train and evaluate a Random Forest classification model, and visualize 
+    the resulting confusion matrix as a heatmap. Designed to support 
+    exploratory data analysis and model interpretation for car category prediction.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -11,3 +20,13 @@ RoxygenNote: 7.3.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Imports: 
+    caret,
+    docopt,
+    ggplot2,
+    randomForest,
+    readr,
+    rlang,
+    stats,
+    tibble
+URL: https://dsci-310-2025.github.io/predictcarcategory/
