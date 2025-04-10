@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Codecov test
+coverage](https://codecov.io/gh/DSCI-310-2025/predictcarcategory/graph/badge.svg)](https://app.codecov.io/gh/DSCI-310-2025/predictcarcategory)
 <!-- badges: end -->
 
 The goal of predictcarcategory is to provide tools for exploratory
