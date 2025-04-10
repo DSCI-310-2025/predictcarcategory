@@ -1,8 +1,9 @@
 pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2025-04-10T06:08Z
+articles:
+  my-vignette: my-vignette.html
+last_built: 2025-04-10T22:56Z
 urls:
   reference: https://dsci-310-2025.github.io/predictcarcategory/reference
   article: https://dsci-310-2025.github.io/predictcarcategory/articles
