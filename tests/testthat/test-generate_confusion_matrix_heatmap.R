@@ -1,6 +1,3 @@
-library(testthat)
-library(ggplot2)
-
 # Create a test data frame
 test_df <- data.frame(
   Prediction = c("A", "A", "B", "B"),
@@ -10,12 +7,12 @@ test_df <- data.frame(
 
 
 # Expected ggplot
-expect_heatmap <- ggplot(test_df, aes(x = Prediction, y = Reference, fill = Freq)) +
-  geom_tile() +
-  geom_text(aes(label = Freq), color = "black", size = 5) +
-  scale_fill_gradient(low = "white", high = "lightblue") +
-  labs(title = "Test Confusion Matrix Heatmap", x = "Predicted Class", y = "Actual Class") +
-  theme_minimal()
+expect_heatmap <- ggplot2::ggplot(test_df, ggplot2::aes(x = Prediction, y = Reference, fill = Freq)) +
+  ggplot2::geom_tile() +
+  ggplot2::geom_text(ggplot2::aes(label = Freq), color = "black", size = 5) +
+  ggplot2::scale_fill_gradient(low = "white", high = "lightblue") +
+  ggplot2::labs(title = "Test Confusion Matrix Heatmap", x = "Predicted Class", y = "Actual Class") +
+  ggplot2::theme_minimal()
 
 
 # Generate plot

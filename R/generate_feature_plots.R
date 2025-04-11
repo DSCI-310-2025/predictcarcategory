@@ -66,3 +66,5 @@ generate_feature_barplots <- function(data, features) {
 
     return(plot_list)
 }
+utils::globalVariables(".data")
+
