@@ -17,11 +17,15 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(predictcarcategory)
 ```
+
 ## Introduction
+
 The `predictcarcategory` package provides tools for exploratory analysis and predictive modeling related to car evaluation categories. The package includes functions to generate bar plots for categorical features, train random forest models, and visualize confusion matrices. This vignette provides a full example using the `predictcarcategory` package.
 
 ## 1. Sample data
+
 We will begin by creating a sample data frame
+
 ```{r}
 df <- data.frame(
   buying = c("vhigh", "vhigh", "vhigh", "vhigh", "vhigh", "low", "med", "low", "med"),
@@ -37,13 +41,31 @@ df
 ```
 
 ## 2. Generate a bar plot for the target variable
+
 ```{r}
 generate_barplot(dataset = df, x = "class", x_name = "Class")
 ```
 
 ## 3. Generate a list of bar plot for the target variable against categorical variables
+
 ```{r}
 category_features <- c("buying", "maint", "doors", "persons", "lug_boot", "safety")
 plot_list <- generate_feature_barplots(data = df, features = category_features)
 plot_list
+```
+
+## 4. Apply RandomForest algorithm to the dataset and return the confusion matrix
+
+```{r}
+df_balanced <- df
+df_balanced[] <- lapply(df_balanced, as.factor)
+conf_mat <- apply_random_forest(df)
+conf_mat
+```
+
+## 5. Generate a heatmap for confusion matrix
+
+```{r}
+conf_df <- data.frame(conf_mat$table)
+generate_confusion_matrix_heatmap(conf_mat)
 ```
