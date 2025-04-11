@@ -2,7 +2,7 @@
 title: "Introduction to predictcarcategory"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{my-vignette}
+  %\VignetteIndexEntry{Introduction to predictcarcategory}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -59,7 +59,7 @@ plot_list
 ```{r}
 df_balanced <- df
 df_balanced[] <- lapply(df_balanced, as.factor)
-conf_mat <- apply_random_forest(df)
+conf_mat <- apply_random_forest(df_balanced)
 conf_mat
 ```
 
@@ -67,5 +67,5 @@ conf_mat
 
 ```{r}
 conf_df <- data.frame(conf_mat$table)
-generate_confusion_matrix_heatmap(conf_mat)
+generate_confusion_matrix_heatmap(conf_df)
 ```
