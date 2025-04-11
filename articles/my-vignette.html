@@ -135,6 +135,55 @@ categorical variables<a class="anchor" aria-label="anchor" href="#generate-a-lis
 <span><span class="co">#&gt; [[6]]</span></span></code></pre>
 <p><img src="my-vignette_files/figure-html/unnamed-chunk-4-6.png" width="700"></p>
 </div>
+<div class="section level2">
+<h2 id="apply-randomforest-algorithm-to-the-dataset-and-return-the-confusion-matrix">4. Apply RandomForest algorithm to the dataset and return the
+confusion matrix<a class="anchor" aria-label="anchor" href="#apply-randomforest-algorithm-to-the-dataset-and-return-the-confusion-matrix"></a>
+</h2>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_balanced</span> <span class="op">&lt;-</span> <span class="va">df</span></span>
+<span><span class="va">df_balanced</span><span class="op">[</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">df_balanced</span>, <span class="va">as.factor</span><span class="op">)</span></span>
+<span><span class="va">conf_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/apply_random_forest.html">apply_random_forest</a></span><span class="op">(</span><span class="va">df_balanced</span><span class="op">)</span></span>
+<span><span class="va">conf_mat</span></span>
+<span><span class="co">#&gt; Confusion Matrix and Statistics</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;           Reference</span></span>
+<span><span class="co">#&gt; Prediction acc good unacc vgood</span></span>
+<span><span class="co">#&gt;      acc     0    0     0     0</span></span>
+<span><span class="co">#&gt;      good    1    0     0     1</span></span>
+<span><span class="co">#&gt;      unacc   0    0     1     0</span></span>
+<span><span class="co">#&gt;      vgood   0    0     0     0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Overall Statistics</span></span>
+<span><span class="co">#&gt;                                           </span></span>
+<span><span class="co">#&gt;                Accuracy : 0.3333          </span></span>
+<span><span class="co">#&gt;                  95% CI : (0.0084, 0.9057)</span></span>
+<span><span class="co">#&gt;     No Information Rate : 0.3333          </span></span>
+<span><span class="co">#&gt;     P-Value [Acc &gt; NIR] : 0.7037          </span></span>
+<span><span class="co">#&gt;                                           </span></span>
+<span><span class="co">#&gt;                   Kappa : 0.25            </span></span>
+<span><span class="co">#&gt;                                           </span></span>
+<span><span class="co">#&gt;  Mcnemar's Test P-Value : NA              </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Statistics by Class:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;                      Class: acc Class: good Class: unacc Class: vgood</span></span>
+<span><span class="co">#&gt; Sensitivity              0.0000          NA       1.0000       0.0000</span></span>
+<span><span class="co">#&gt; Specificity              1.0000      0.3333       1.0000       1.0000</span></span>
+<span><span class="co">#&gt; Pos Pred Value              NaN          NA       1.0000          NaN</span></span>
+<span><span class="co">#&gt; Neg Pred Value           0.6667          NA       1.0000       0.6667</span></span>
+<span><span class="co">#&gt; Prevalence               0.3333      0.0000       0.3333       0.3333</span></span>
+<span><span class="co">#&gt; Detection Rate           0.0000      0.0000       0.3333       0.0000</span></span>
+<span><span class="co">#&gt; Detection Prevalence     0.0000      0.6667       0.3333       0.0000</span></span>
+<span><span class="co">#&gt; Balanced Accuracy        0.5000          NA       1.0000       0.5000</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="generate-a-heatmap-for-confusion-matrix">5. Generate a heatmap for confusion matrix<a class="anchor" aria-label="anchor" href="#generate-a-heatmap-for-confusion-matrix"></a>
+</h2>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">conf_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">conf_mat</span><span class="op">$</span><span class="va">table</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/generate_confusion_matrix_heatmap.html">generate_confusion_matrix_heatmap</a></span><span class="op">(</span><span class="va">conf_df</span><span class="op">)</span></span></code></pre></div>
+<p><img src="my-vignette_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+</div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
