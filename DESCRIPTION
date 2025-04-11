@@ -24,12 +24,9 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     caret,
-    docopt,
     ggplot2,
     randomForest,
-    readr,
     rlang,
-    stats,
     tibble
 URL: https://dsci-310-2025.github.io/predictcarcategory/
 VignetteBuilder: knitr

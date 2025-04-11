@@ -6,7 +6,7 @@ test_data <- data.frame(
 )
 
 # Expected ggplot for feature1
-expected_plot_feature1 <- ggplot2::ggplot(test_data, aes(x = feature1, fill = class)) +
+expected_plot_feature1 <- ggplot2::ggplot(test_data, ggplot2::aes(x = feature1, fill = class)) +
   ggplot2::geom_bar(position = "dodge") +
   ggplot2::theme_minimal() +
   ggplot2::labs(
@@ -16,7 +16,7 @@ expected_plot_feature1 <- ggplot2::ggplot(test_data, aes(x = feature1, fill = cl
   )
 
 # Expected ggplot for feature2
-expected_plot_feature2 <- ggplot2::ggplot(test_data, aes(x = feature2, fill = class)) +
+expected_plot_feature2 <- ggplot2::ggplot(test_data, ggplot2::aes(x = feature2, fill = class)) +
   ggplot2::geom_bar(position = "dodge") +
   ggplot2::theme_minimal() +
   ggplot2::labs(
