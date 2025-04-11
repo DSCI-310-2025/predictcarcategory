@@ -5,8 +5,10 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/DSCI-310-2025/predictcarcategory/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DSCI-310-2025/predictcarcategory/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/DSCI-310-2025/predictcarcategory/graph/badge.svg)](https://app.codecov.io/gh/DSCI-310-2025/predictcarcategory)
+
 <!-- badges: end -->
 
 The goal of predictcarcategory is to provide tools for exploratory
@@ -52,6 +54,7 @@ generate_barplot(dataset = df, x = "class", x_name = "Class")
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+
 generate_barplot() creates a bar plot to visualize the distribution of
 the target variable. It makes it easier to see how balanced or
 imbalanced the classes are within the dataset.
@@ -70,9 +73,64 @@ plot_list[[5]]
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
+
 generate_feature_barplots() creates a list of bar plots to visualize the
 relationship between the categorical variables and the target variable.
 It makes it easier to identify the trends and patterns.
+
+``` r
+df_balanced <- df
+df_balanced[] <- lapply(df_balanced, as.factor)
+conf_mat <- apply_random_forest(df_balanced)
+conf_mat
+#> Confusion Matrix and Statistics
+#> 
+#>           Reference
+#> Prediction acc good unacc vgood
+#>      acc     0    0     0     0
+#>      good    1    0     0     1
+#>      unacc   0    0     1     0
+#>      vgood   0    0     0     0
+#> 
+#> Overall Statistics
+#>                                           
+#>                Accuracy : 0.3333          
+#>                  95% CI : (0.0084, 0.9057)
+#>     No Information Rate : 0.3333          
+#>     P-Value [Acc > NIR] : 0.7037          
+#>                                           
+#>                   Kappa : 0.25            
+#>                                           
+#>  Mcnemar's Test P-Value : NA              
+#> 
+#> Statistics by Class:
+#> 
+#>                      Class: acc Class: good Class: unacc Class: vgood
+#> Sensitivity              0.0000          NA       1.0000       0.0000
+#> Specificity              1.0000      0.3333       1.0000       1.0000
+#> Pos Pred Value              NaN          NA       1.0000          NaN
+#> Neg Pred Value           0.6667          NA       1.0000       0.6667
+#> Prevalence               0.3333      0.0000       0.3333       0.3333
+#> Detection Rate           0.0000      0.0000       0.3333       0.0000
+#> Detection Prevalence     0.0000      0.6667       0.3333       0.0000
+#> Balanced Accuracy        0.5000          NA       1.0000       0.5000
+```
+
+apply_random_forest() applies RandomForest algorithm to the dataset and
+returns the confusion matrix. It helps evaluate the classification
+performance of the model by splitting the data into training and testing
+sets, fitting a Random Forest, and summarizing the results through a
+confusion matrix.
+
+``` r
+conf_df <- data.frame(conf_mat$table)
+generate_confusion_matrix_heatmap(conf_df)
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+generate_confusion_matrix_heatmap() creates a heatmap for confusion
+matrix. It makes it easier to interpret model performance.
 
 ## Position in the R Package Ecosystem
 
