@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   my-vignette: my-vignette.html
-last_built: 2025-04-11T03:23Z
+last_built: 2025-04-12T22:12Z
 urls:
   reference: https://dsci-310-2025.github.io/predictcarcategory/reference
   article: https://dsci-310-2025.github.io/predictcarcategory/articles
